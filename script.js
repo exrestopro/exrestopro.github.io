@@ -244,25 +244,19 @@ document.addEventListener('DOMContentLoaded', function () {
     const modal = document.getElementById('feature-modal');
     const content = document.getElementById('feature-modal-content');
     const features = {
-      unlimited_produk: {
-        title: 'Unlimited Produk',
+      device_compatibility: {
+        title: 'Siap untuk Tablet & HP Biasa',
+        img: 'assets/tabletphone.png',
+        desc: `<ul class="list-disc pl-5 space-y-2 text-left">
+          <li>Tidak perlu beli device baru! ExRestoPro bisa langsung dipakai di iPad atau HP (iOS).</li>
+          <li><span class='text-xs text-gray-500'>*Support Android menyusul</span></li>
+        </ul>`
+      },
+      produk_varian_modifier: {
+        title: 'Produk, Varian, Modifier',
         img: 'https://img.icons8.com/color/96/000000/plus-math.png',
         desc: `<ul class="list-disc pl-5 space-y-2 text-left">
-          <li>Tambah produk tanpa batas, cocok untuk menu yang terus berkembang.</li>
-        </ul>`
-      },
-      varian_produk: {
-        title: 'Varian Produk',
-        img: 'https://img.icons8.com/color/96/000000/ingredients-list.png',
-        desc: `<ul class="list-disc pl-5 space-y-2 text-left">
-          <li>Setiap produk bisa punya varian (ukuran, rasa, topping).</li>
-        </ul>`
-      },
-      modifier: {
-        title: 'Modifier',
-        img: 'https://img.icons8.com/color/96/000000/add-property.png',
-        desc: `<ul class="list-disc pl-5 space-y-2 text-left">
-          <li>Opsi tambahan pada produk (extra cheese, less sugar, dll).</li>
+          <li>Tambah produk tanpa batas, setiap produk bisa punya varian (ukuran, rasa, topping) dan modifier (opsi tambahan seperti extra cheese, less sugar, dll).</li>
         </ul>`
       },
       harga_tipe: {
@@ -270,27 +264,42 @@ document.addEventListener('DOMContentLoaded', function () {
         img: 'https://img.icons8.com/color/96/000000/price-tag-euro.png',
         desc: `<ul class="list-disc pl-5 space-y-2 text-left">
           <li>Atur harga berbeda untuk dine-in, takeaway, GoFood, Grab, dll.</li>
+          <li>Kalkulasi otomatis untuk setiap produk baru atau setiap penjualan.</li>
         </ul>`
       },
-      meja_shift_kas: {
-        title: 'Manajemen Meja, Shift, Kas',
+      meja: {
+        title: 'Manajemen Meja',
         img: 'https://img.icons8.com/color/96/000000/table.png',
         desc: `<ul class="list-disc pl-5 space-y-2 text-left">
-          <li>Pantau status meja, shift karyawan, dan kas harian.</li>
+          <li>Pantau status meja, pindah/melebur meja, dan pengaturan layout meja secara fleksibel.</li>
+        </ul>`
+      },
+      shift: {
+        title: 'Manajemen Shift Kasir',
+        img: 'https://img.icons8.com/color/96/000000/clock--v1.png',
+        desc: `<ul class="list-disc pl-5 space-y-2 text-left">
+          <li>Shift kasir: mulai shift (opening balance), tutup shift (closing), pencocokan kas, dan histori shift kasir secara detail.</li>
+        </ul>`
+      },
+      kas: {
+        title: 'Manajemen Kas',
+        img: 'https://img.icons8.com/color/96/000000/cash-register.png',
+        desc: `<ul class="list-disc pl-5 space-y-2 text-left">
+          <li>Pantau kas harian, mutasi kas, dan laporan kas masuk/keluar secara real-time.</li>
         </ul>`
       },
       struk_bluetooth: {
-        title: 'Cetak Struk via Bluetooth',
+        title: 'Cetak Struk Bluetooth',
         img: 'https://img.icons8.com/color/96/000000/bluetooth.png',
         desc: `<ul class="list-disc pl-5 space-y-2 text-left">
           <li>Print struk transaksi & laporan shift ke printer thermal Bluetooth 58mm.</li>
         </ul>`
       },
       laporan: {
-        title: 'Laporan Lengkap',
+        title: 'Analisa & Laporan Detail',
         img: 'https://img.icons8.com/color/96/000000/combo-chart--v1.png',
         desc: `<ul class="list-disc pl-5 space-y-2 text-left">
-          <li>Laporan harian, mingguan, bulanan, filter sesuai kebutuhan.</li>
+          <li>Laporan harian, mingguan, bulanan, filter sesuai kebutuhan, dan analisa penjualan yang detail.</li>
         </ul>`
       },
       offline_drive: {
@@ -298,37 +307,29 @@ document.addEventListener('DOMContentLoaded', function () {
         img: 'https://img.icons8.com/color/96/000000/google-drive--v2.png',
         desc: `<ul class="list-disc pl-5 space-y-2 text-left">
           <li>Aplikasi tetap berjalan tanpa internet, data backup ke Google Drive.</li>
+          <li>Support schedule backup ke Google Drive pribadi.</li>
         </ul>`
       },
-      user_pajak_tips: {
-        title: 'User, Pajak, Tips',
+      user_pajak: {
+        title: 'Manajemen User & Pajak',
         img: 'https://img.icons8.com/color/96/000000/user-group-man-man.png',
         desc: `<ul class="list-disc pl-5 space-y-2 text-left">
-          <li>Manajemen user, hak akses, pajak, tips/gratuity.</li>
+          <li>Manajemen user (multi user, hak akses, log aktivitas), pengaturan pajak otomatis, dan keamanan data.</li>
+          <li><span class='text-xs text-gray-500'>(Tips/gratuity sementara tidak tersedia)</span></li>
         </ul>`
       },
-      pembayaran_excel: {
-        title: 'Pembayaran & Import/Export Excel',
+      pembayaran: {
+        title: 'Metode Pembayaran',
+        img: 'https://img.icons8.com/color/96/000000/money.png',
+        desc: `<ul class="list-disc pl-5 space-y-2 text-left">
+          <li>Mendukung berbagai metode pembayaran, split bill, split pembayaran, dan pembayaran digital/cash.</li>
+        </ul>`
+      },
+      excel: {
+        title: 'Import/Export Excel',
         img: 'https://img.icons8.com/color/96/000000/microsoft-excel-2019--v2.png',
         desc: `<ul class="list-disc pl-5 space-y-2 text-left">
-          <li>Metode pembayaran beragam, import/export data Excel.</li>
-        </ul>`
-      },
-      support_ios: {
-        title: 'iOS & Support',
-        img: 'https://img.icons8.com/color/96/000000/apple-logo.png',
-        desc: `<ul class="list-disc pl-5 space-y-2 text-left">
-          <li>Aplikasi iOS, support via WhatsApp/email, data aman.</li>
-        </ul>`
-      },
-      device_compatibility: {
-        title: 'Siap untuk Tablet & HP Biasa',
-        img: 'https://img.icons8.com/color/96/000000/tablet-mac.png',
-        desc: `<ul class="list-disc pl-5 space-y-2 text-left">
-          <li>ExRestoPro dapat digunakan di berbagai perangkat: tablet Android, iPad, maupun HP biasa (Android/iOS).</li>
-          <li>Tidak perlu investasi perangkat mahal—cukup gunakan device yang sudah Anda miliki.</li>
-          <li>Tampilan otomatis menyesuaikan layar, tetap nyaman digunakan oleh kasir, pelayan, maupun owner.</li>
-          <li>Cocok untuk operasional di resto/cafe kecil hingga besar.</li>
+          <li>Export/import produk termasuk detail kategori, harga, dan modifier.</li>
         </ul>`
       }
     };

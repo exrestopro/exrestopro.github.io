@@ -257,58 +257,73 @@
         <button type="button" class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center focus:outline-none group hover:shadow-xl transition-smooth border-2 border-green-400" onclick="showFeatureModal('device_compatibility')">
           <img src="assets/tabletphone.png" alt="Tablet & Phone Ready" class="mb-4 group-hover:scale-110 transition-smooth" style="width:44px;height:44px;filter:drop-shadow(0 2px 6px #4ade80aa);">
           <h3 class="font-semibold text-base mb-2 text-green-700">Siap untuk Tablet & HP Biasa</h3>
-          <p class="text-gray-600 text-sm">Tidak perlu beli device baru! ExRestoPro bisa langsung dipakai di tablet atau HP yang sudah Anda miliki.</p>
+          <p class="text-gray-600 text-sm">Tidak perlu beli device baru! ExRestoPro bisa langsung dipakai di iPad atau HP (iOS). <span class="text-xs text-gray-500">*Support Android menyusul</span></p>
         </button>
-        <!-- Fitur detail, klik untuk popup -->
-        <button type="button" class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center focus:outline-none group hover:shadow-xl transition-smooth" onclick="showFeatureModal('unlimited_produk')">
-          <img src="https://img.icons8.com/color/48/000000/plus-math.png" alt="Unlimited Produk" class="mb-4 group-hover:scale-110 transition-smooth">
-          <h3 class="font-semibold text-base mb-2">Unlimited Produk</h3>
-          <p class="text-gray-600 text-sm">Tambah produk tanpa batas, cocok untuk menu yang terus berkembang.</p>
+        <!-- Produk, Varian, Modifier -->
+        <button type="button" class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center focus:outline-none group hover:shadow-xl transition-smooth" onclick="showFeatureModal('produk_varian_modifier')">
+          <img src="https://img.icons8.com/color/48/000000/plus-math.png" alt="Produk, Varian, Modifier" class="mb-4 group-hover:scale-110 transition-smooth">
+          <h3 class="font-semibold text-base mb-2">Produk, Varian, Modifier</h3>
+          <p class="text-gray-600 text-sm">Tambah produk tanpa batas, setiap produk bisa punya varian (ukuran, rasa, topping) dan modifier (opsi tambahan seperti extra cheese, less sugar, dll).</p>
         </button>
-        <button type="button" class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center focus:outline-none group hover:shadow-xl transition-smooth" onclick="showFeatureModal('varian_produk')">
-          <img src="https://img.icons8.com/color/48/000000/ingredients-list.png" alt="Varian Produk" class="mb-4 group-hover:scale-110 transition-smooth">
-          <h3 class="font-semibold text-base mb-2">Varian Produk</h3>
-          <p class="text-gray-600 text-sm">Setiap produk bisa punya varian (ukuran, rasa, topping).</p>
-        </button>
-        <button type="button" class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center focus:outline-none group hover:shadow-xl transition-smooth" onclick="showFeatureModal('modifier')">
-          <img src="https://img.icons8.com/color/48/000000/add-property.png" alt="Modifier" class="mb-4 group-hover:scale-110 transition-smooth">
-          <h3 class="font-semibold text-base mb-2">Modifier</h3>
-          <p class="text-gray-600 text-sm">Opsi tambahan pada produk (extra cheese, less sugar, dll).</p>
-        </button>
+        <!-- Harga Berdasarkan Tipe Pembelian -->
         <button type="button" class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center focus:outline-none group hover:shadow-xl transition-smooth" onclick="showFeatureModal('harga_tipe')">
           <img src="https://img.icons8.com/color/48/000000/price-tag-euro.png" alt="Harga Tipe Pembelian" class="mb-4 group-hover:scale-110 transition-smooth">
-          <h3 class="font-semibold text-base mb-2">Harga Tipe Pembelian</h3>
-          <p class="text-gray-600 text-sm">Atur harga berbeda untuk dine-in, takeaway, GoFood, Grab, dll.</p>
+          <h3 class="font-semibold text-base mb-2">Harga Berdasarkan Tipe Pembelian</h3>
+          <p class="text-gray-600 text-sm">Atur harga berbeda untuk dine-in, takeaway, GoFood, Grab, dll. <b>Kalkulasi otomatis untuk setiap produk baru atau setiap penjualan.</b></p>
         </button>
-        <button type="button" class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center focus:outline-none group hover:shadow-xl transition-smooth" onclick="showFeatureModal('meja_shift_kas')">
-          <img src="https://img.icons8.com/color/48/000000/table.png" alt="Manajemen Meja, Shift, Kas" class="mb-4 group-hover:scale-110 transition-smooth">
-          <h3 class="font-semibold text-base mb-2">Manajemen Meja, Shift, Kas</h3>
-          <p class="text-gray-600 text-sm">Pantau status meja, shift karyawan, dan kas harian.</p>
+        <!-- Manajemen Meja -->
+        <button type="button" class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center focus:outline-none group hover:shadow-xl transition-smooth" onclick="showFeatureModal('meja')">
+          <img src="https://img.icons8.com/color/48/000000/table.png" alt="Manajemen Meja" class="mb-4 group-hover:scale-110 transition-smooth">
+          <h3 class="font-semibold text-base mb-2">Manajemen Meja</h3>
+          <p class="text-gray-600 text-sm">Pantau status meja, pindah/melebur meja, dan pengaturan layout meja secara fleksibel.</p>
         </button>
+        <!-- Manajemen Shift -->
+        <button type="button" class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center focus:outline-none group hover:shadow-xl transition-smooth" onclick="showFeatureModal('shift')">
+          <img src="https://img.icons8.com/color/48/000000/clock--v1.png" alt="Manajemen Shift" class="mb-4 group-hover:scale-110 transition-smooth">
+          <h3 class="font-semibold text-base mb-2">Manajemen Shift Kasir</h3>
+          <p class="text-gray-600 text-sm">Shift kasir: mulai shift (opening balance), tutup shift (closing), pencocokan kas, dan histori shift kasir secara detail.</p>
+        </button>
+        <!-- Manajemen Kas -->
+        <button type="button" class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center focus:outline-none group hover:shadow-xl transition-smooth" onclick="showFeatureModal('kas')">
+          <img src="https://img.icons8.com/color/48/000000/cash-register.png" alt="Manajemen Kas" class="mb-4 group-hover:scale-110 transition-smooth">
+          <h3 class="font-semibold text-base mb-2">Manajemen Kas</h3>
+          <p class="text-gray-600 text-sm">Pantau kas harian, mutasi kas, dan laporan kas masuk/keluar secara real-time.</p>
+        </button>
+        <!-- Cetak Struk Bluetooth -->
         <button type="button" class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center focus:outline-none group hover:shadow-xl transition-smooth" onclick="showFeatureModal('struk_bluetooth')">
           <img src="https://img.icons8.com/color/48/000000/bluetooth.png" alt="Cetak Struk Bluetooth" class="mb-4 group-hover:scale-110 transition-smooth">
           <h3 class="font-semibold text-base mb-2">Cetak Struk Bluetooth</h3>
           <p class="text-gray-600 text-sm">Print struk transaksi & laporan shift ke printer thermal Bluetooth 58mm.</p>
         </button>
+        <!-- Analisa & Laporan Detail -->
         <button type="button" class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center focus:outline-none group hover:shadow-xl transition-smooth" onclick="showFeatureModal('laporan')">
-          <img src="https://img.icons8.com/color/48/000000/combo-chart--v1.png" alt="Laporan Lengkap" class="mb-4 group-hover:scale-110 transition-smooth">
-          <h3 class="font-semibold text-base mb-2">Laporan Lengkap</h3>
-          <p class="text-gray-600 text-sm">Laporan harian, mingguan, bulanan, filter sesuai kebutuhan.</p>
+          <img src="https://img.icons8.com/color/48/000000/combo-chart--v1.png" alt="Analisa & Laporan" class="mb-4 group-hover:scale-110 transition-smooth">
+          <h3 class="font-semibold text-base mb-2">Analisa & Laporan Detail</h3>
+          <p class="text-gray-600 text-sm">Laporan harian, mingguan, bulanan, filter sesuai kebutuhan, dan analisa penjualan yang detail.</p>
         </button>
+        <!-- Mode Offline & Google Drive -->
         <button type="button" class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center focus:outline-none group hover:shadow-xl transition-smooth" onclick="showFeatureModal('offline_drive')">
           <img src="https://img.icons8.com/color/48/000000/google-drive--v2.png" alt="Mode Offline & Google Drive" class="mb-4 group-hover:scale-110 transition-smooth">
           <h3 class="font-semibold text-base mb-2">Mode Offline & Google Drive</h3>
-          <p class="text-gray-600 text-sm">Aplikasi tetap berjalan tanpa internet, data backup ke Google Drive.</p>
+          <p class="text-gray-600 text-sm">Aplikasi tetap berjalan tanpa internet, data backup ke Google Drive. <b>Support schedule backup ke Google Drive pribadi.</b></p>
         </button>
-        <button type="button" class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center focus:outline-none group hover:shadow-xl transition-smooth" onclick="showFeatureModal('user_pajak_tips')">
-          <img src="https://img.icons8.com/color/48/000000/user-group-man-man.png" alt="User, Pajak, Tips" class="mb-4 group-hover:scale-110 transition-smooth">
-          <h3 class="font-semibold text-base mb-2">User, Pajak, Tips</h3>
-          <p class="text-gray-600 text-sm">Manajemen user, hak akses, pajak, tips/gratuity.</p>
+        <!-- Manajemen User & Pajak -->
+        <button type="button" class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center focus:outline-none group hover:shadow-xl transition-smooth" onclick="showFeatureModal('user_pajak')">
+          <img src="https://img.icons8.com/color/48/000000/user-group-man-man.png" alt="User & Pajak" class="mb-4 group-hover:scale-110 transition-smooth">
+          <h3 class="font-semibold text-base mb-2">Manajemen User & Pajak</h3>
+          <p class="text-gray-600 text-sm">Manajemen user (multi user, hak akses, log aktivitas), pengaturan pajak otomatis, dan keamanan data.</p>
         </button>
-        <button type="button" class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center focus:outline-none group hover:shadow-xl transition-smooth" onclick="showFeatureModal('pembayaran_excel')">
-          <img src="https://img.icons8.com/color/48/000000/microsoft-excel-2019--v2.png" alt="Pembayaran & Excel" class="mb-4 group-hover:scale-110 transition-smooth">
-          <h3 class="font-semibold text-base mb-2">Pembayaran & Excel</h3>
-          <p class="text-gray-600 text-sm">Metode pembayaran beragam, import/export data Excel.</p>
+        <!-- Metode Pembayaran -->
+        <button type="button" class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center focus:outline-none group hover:shadow-xl transition-smooth" onclick="showFeatureModal('pembayaran')">
+          <img src="https://img.icons8.com/color/48/000000/money.png" alt="Metode Pembayaran" class="mb-4 group-hover:scale-110 transition-smooth">
+          <h3 class="font-semibold text-base mb-2">Metode Pembayaran</h3>
+          <p class="text-gray-600 text-sm">Mendukung berbagai metode pembayaran, split bill, split pembayaran, dan pembayaran digital/cash.</p>
+        </button>
+        <!-- Import/Export Excel -->
+        <button type="button" class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center focus:outline-none group hover:shadow-xl transition-smooth" onclick="showFeatureModal('excel')">
+          <img src="https://img.icons8.com/color/48/000000/microsoft-excel-2019--v2.png" alt="Import/Export Excel" class="mb-4 group-hover:scale-110 transition-smooth">
+          <h3 class="font-semibold text-base mb-2">Import/Export Excel</h3>
+          <p class="text-gray-600 text-sm">Export/import produk termasuk detail kategori, harga, dan modifier.</p>
         </button>
      
        
