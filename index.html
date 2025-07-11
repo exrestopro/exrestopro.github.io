@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Landing page ExRestoPro: Sistem kasir resto canggih, bayar sekali pakai selamanya. Download di App Store.">
+  <title>ExRestoPro - Sistem Kasir Resto Canggih</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Poppins (headings), Inter (body) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { font-family: 'Inter', Arial, sans-serif; }
+    h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', Arial, sans-serif; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <!-- Navbar/Menu Sticky -->
+  <header class="fixed top-0 left-0 w-full z-40 bg-white shadow-lg transition-all duration-300" id="navbar" style="background:rgba(255,255,255,0.98);backdrop-filter:saturate(180%) blur(12px);">
+    <nav class="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
+      <a href="#hero" class="flex items-center gap-2 font-extrabold text-green-600 text-xl lg:text-2xl tracking-tight">
+        <img src="assets/app_icon.png" alt="ExRestoPro Logo" class="w-8 h-8 rounded-lg shadow" style="background:transparent;"> ExRestoPro
+      </a>
+      <button id="menu-toggle" class="lg:hidden text-3xl text-green-700 focus:outline-none" aria-label="Buka menu">
+        <span>&#9776;</span>
+      </button>
+      <ul class="hidden lg:flex items-center gap-6 font-semibold text-gray-700 text-base" id="navbar-menu">
+        <li><a href="#problem" class="hover:text-green-600 transition">Masalah</a></li>
+        <li><a href="#perbandingan" class="hover:text-green-600 transition">Perbandingan</a></li>
+        <li><a href="#fitur" class="hover:text-green-600 transition">Fitur</a></li>
+        <li><a href="#harga" class="hover:text-green-600 transition">Harga</a></li>
+        <li><a href="#testimoni" class="hover:text-green-600 transition">Testimoni</a></li>
+        <li><a href="#screenshot-gallery" class="hover:text-green-600 transition">Galeri</a></li>
+        <li><a href="#howto" class="hover:text-green-600 transition">Cara Memulai</a></li>
+        <li><a href="#faq" class="hover:text-green-600 transition">FAQ</a></li>
+        <li><a href="#final-cta" class="ml-2 inline-flex items-center bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg shadow transition"><img src="https://upload.wikimedia.org/wikipedia/commons/6/67/App_Store_%28iOS%29.svg" alt="App Store" class="w-5 h-5 mr-2">Download</a></li>
+      </ul>
+    </nav>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-50 bg-black/60 hidden lg:hidden">
+      <div class="absolute top-0 right-0 w-full h-full bg-white shadow-lg flex flex-col p-6 gap-4 animate-slideIn" style="background:rgba(255,255,255,1);backdrop-filter:none;">
+        <button id="menu-close" class="self-end text-3xl text-gray-500 hover:text-green-600 mb-4">&times;</button>
+        <a href="#problem" class="py-2 px-2 rounded hover:bg-green-50 transition" onclick="closeMobileMenu()">Masalah</a>
+        <a href="#perbandingan" class="py-2 px-2 rounded hover:bg-green-50 transition" onclick="closeMobileMenu()">Perbandingan</a>
+        <a href="#fitur" class="py-2 px-2 rounded hover:bg-green-50 transition" onclick="closeMobileMenu()">Fitur</a>
+        <a href="#harga" class="py-2 px-2 rounded hover:bg-green-50 transition" onclick="closeMobileMenu()">Harga</a>
+        <a href="#testimoni" class="py-2 px-2 rounded hover:bg-green-50 transition" onclick="closeMobileMenu()">Testimoni</a>
+        <a href="#screenshot-gallery" class="py-2 px-2 rounded hover:bg-green-50 transition" onclick="closeMobileMenu()">Galeri</a>
+        <a href="#howto" class="py-2 px-2 rounded hover:bg-green-50 transition" onclick="closeMobileMenu()">Cara Memulai</a>
+        <a href="#faq" class="py-2 px-2 rounded hover:bg-green-50 transition" onclick="closeMobileMenu()">FAQ</a>
+        <a href="#final-cta" class="mt-2 inline-flex items-center bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg shadow transition" onclick="closeMobileMenu()"><img src="https://upload.wikimedia.org/wikipedia/commons/6/67/App_Store_%28iOS%29.svg" alt="App Store" class="w-5 h-5 mr-2">Download</a>
+      </div>
+    </div>
+    <style>
+      @keyframes slideIn { from { right: -300px; opacity:0; } to { right: 0; opacity:1; } }
+      .animate-slideIn { animation: slideIn 0.3s cubic-bezier(.4,0,.2,1); }
+    </style>
+  </header>
+  <div class="h-20 lg:h-24"></div>
+  <!-- Hero Section -->
+  <section class="relative w-full min-h-screen flex items-center justify-center bg-white hero-parallax overflow-hidden" style="background-image: url('assets/background1.png');">
+    <div class="absolute inset-0 bg-gradient-to-b from-green-200/60 via-white/80 to-gray-50/90 pointer-events-none"></div>
+    <div class="relative z-10 flex flex-col lg:flex-row items-center justify-center w-full max-w-6xl px-6 py-20 gap-12">
+      <!-- Left: Text -->
+      <div class="flex-1 text-center lg:text-left relative" data-aos="fade-right">
+        <span class="inline-block bg-yellow-400 text-yellow-900 font-bold px-4 py-1 rounded-full text-xs uppercase tracking-wider shadow-md absolute -top-8 left-1/2 lg:left-0 -translate-x-1/2 lg:translate-x-0 animate-pulse">Best Value</span>
+        <h1 class="text-4xl lg:text-6xl font-bold mb-4 text-blue-800 drop-shadow-lg">Sistem Kasir Resto Canggih. <br class="hidden md:inline">Bayar Sekali, Pakai Selamanya.</h1>
+        <p class="text-lg lg:text-2xl text-gray-700 mb-8 max-w-xl mx-auto lg:mx-0 font-medium">Stop bayar langganan bulanan yang mahal.<br>ExRestoPro hadir dengan semua fitur premium hanya dengan <span class="font-bold text-green-600">Rp 199.000</span> untuk lisensi seumur hidup & gratis update.</p>
+        <a href="#" class="inline-flex items-center bg-green-500 hover:bg-green-600 text-white font-semibold px-8 py-4 rounded-xl shadow-lg cta-shadow text-lg transition-smooth mb-6 animate-bounce-slow" data-aos="fade-up" data-aos-delay="200">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/App_Store_%28iOS%29.svg" alt="App Store" class="w-7 h-7 mr-3">Download di App Store
+        </a>
+      </div>
+      <!-- Right: Mockup -->
+      <div class="flex-1 flex items-center justify-center relative" data-aos="fade-left">
+        <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-40 h-40 bg-green-200 rounded-full blur-2xl opacity-60 z-0"></div>
+        <img src="assets/hero.png" alt="Mockup ExRestoPro" class="mockup-img relative z-10 hover:scale-105 transition-transform duration-500" style="max-width:320px; box-shadow: 0 8px 32px 0 rgba(34,197,94,0.18), 0 2px 8px 0 rgba(0,0,0,0.10); border-radius: 1.5rem; background: transparent;">
+      </div>
+    </div>
+  </section>
+  <!-- Screenshot Gallery Section -->
+
+  <!-- Comparison Section -->
+ 
+  <!-- Social Proof Section -->
+  <!-- Problem Section -->
+  <section class="w-full bg-red-50 py-12" id="problem" data-aos="fade-up">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-2xl lg:text-3xl font-bold text-red-700 mb-6">Masih Mengalami Masalah Ini di Bisnis Resto/Kafe Anda?</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-6">
+        <div class="bg-white rounded-xl shadow p-5 flex flex-col items-center border-l-4 border-red-400 hover:shadow-xl transition-all duration-300">
+          <svg class="w-8 h-8 text-red-400 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/></svg>
+          <div class="font-semibold mb-1">Uang Kas Sering Tidak Cocok</div>
+          <div class="text-gray-600 text-sm">Pencatatan manual rawan salah & uang hilang tanpa jejak.</div>
+        </div>
+        <div class="bg-white rounded-xl shadow p-5 flex flex-col items-center border-l-4 border-red-400 hover:shadow-xl transition-all duration-300">
+          <svg class="w-8 h-8 text-red-400 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/></svg>
+          <div class="font-semibold mb-1">Sistem Kasir Lain Mahal</div>
+          <div class="text-gray-600 text-sm">Harus bayar bulanan & biaya tambahan untuk fitur penting.</div>
+        </div>
+        <div class="bg-white rounded-xl shadow p-5 flex flex-col items-center border-l-4 border-red-400 hover:shadow-xl transition-all duration-300">
+          <svg class="w-8 h-8 text-red-400 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/></svg>
+          <div class="font-semibold mb-1">Data Tidak Aman</div>
+          <div class="text-gray-600 text-sm">Data bisa hilang jika HP rusak, tidak ada backup otomatis.</div>
+        </div>
+        <div class="bg-white rounded-xl shadow p-5 flex flex-col items-center border-l-4 border-red-400 hover:shadow-xl transition-all duration-300">
+          <svg class="w-8 h-8 text-red-400 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/></svg>
+          <div class="font-semibold mb-1">Fitur Terbatas</div>
+          <div class="text-gray-600 text-sm">Harus upgrade/pakai add-on untuk fitur yang seharusnya gratis.</div>
+        </div>
+        <div class="bg-white rounded-xl shadow p-5 flex flex-col items-center border-l-4 border-red-400 hover:shadow-xl transition-all duration-300">
+          <svg class="w-8 h-8 text-red-400 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/></svg>
+          <div class="font-semibold mb-1">Support Lambat</div>
+          <div class="text-gray-600 text-sm">Sulit dapat bantuan saat butuh, respon lama.</div>
+        </div>
+      </div>
+      <div class="text-lg text-red-700 font-semibold">ExRestoPro hadir untuk mengatasi semua masalah di atas, tanpa biaya bulanan!</div>
+      <div class="mt-8 flex flex-col items-center justify-center">
+        <div class="relative inline-block mb-4">
+          <span class="inline-block bg-gradient-to-r from-yellow-400 via-pink-400 to-green-400 text-white font-extrabold px-6 py-3 rounded-2xl text-xl shadow-xl animate-pulse border-4 border-white">Jangan Tertipu Aplikasi Murah Abal-abal!</span>
+          <span class="absolute -top-3 -right-3 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full shadow">Penting!</span>
+        </div>
+        <div class="bg-white rounded-xl shadow-lg p-6 max-w-2xl text-center border-l-4 border-yellow-400">
+          <p class="text-lg text-gray-800 font-semibold mb-2">Banyak aplikasi kasir murah di luar sana ternyata hanya:</p>
+          <ul class="list-disc text-left text-gray-700 pl-6 mb-2">
+            <li>File Excel yang didesain seperti kasir</li>
+            <li>Atau harus install manual di komputer/server sendiri</li>
+            <li>Seringkali tidak ada update, tidak ada support, dan rawan error</li>
+          </ul>
+          <p class="text-base text-gray-700 mb-2">Akibatnya? Data tidak aman, aplikasi tidak berjalan lancar, dan bisnis Anda jadi taruhan.</p>
+          <div class="mt-4 bg-green-100 border-l-4 border-green-500 rounded p-4">
+            <span class="text-green-700 font-bold text-lg">ExRestoPro berbeda!</span>
+            <p class="text-green-800 mt-1">Aplikasi <b>asli</b>, sudah lolos verifikasi <span class="inline-flex items-center font-bold text-blue-700"><img src="https://upload.wikimedia.org/wikipedia/commons/6/67/App_Store_%28iOS%29.svg" alt="App Store" class="w-5 h-5 mr-1 inline">App Store</span>, bisa langsung download dan pakai di iPhone/iPad Anda. Bukan file excel, bukan install ribet!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+<style>
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-bounce-slow {
+  animation: bounce-slow 2s infinite;
+}
+</style>
+  </section>
+  </section>
+ <section class="w-full bg-white py-16" id="perbandingan" data-aos="fade-up">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-3xl lg:text-4xl font-bold text-blue-800 text-center mb-8">Perbandingan ExRestoPro vs Kompetitor</h2>
+      <div class="overflow-x-auto">
+        <table class="min-w-full border border-gray-200 rounded-xl overflow-hidden shadow-lg bg-white">
+          <thead class="bg-green-100">
+            <tr>
+              <th class="py-4 px-3 text-left text-lg font-bold text-green-700">Fitur/Benefit</th>
+              <th class="py-4 px-3 text-center text-lg font-bold text-blue-800">ExRestoPro</th>
+              <th class="py-4 px-3 text-center text-lg font-bold" style="color:#00BCD4">Kompetitor A</th>
+              <th class="py-4 px-3 text-center text-lg font-bold text-gray-600">Kompetitor B</th>
+            </tr>
+          </thead>
+          <tbody class="text-base">
+            <tr class="border-t">
+              <td class="py-3 px-3 font-semibold">Harga (Bayar Sekali, Selamanya)</td>
+              <td class="py-3 px-3 text-center text-green-600 font-bold bg-green-50">Rp 199.000</td>
+              <td class="py-3 px-3 text-center" style="color:#00BCD4;font-weight:bold;">Rp 300.000/bulan</td>
+              <td class="py-3 px-3 text-center text-orange-700 font-bold">Rp 5.000.000 (bayar di awal, hanya komputer)</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <td class="py-3 px-3 font-semibold">Gratis Update Selamanya</td>
+              <td class="py-3 px-3 text-center text-green-600 font-bold">✔️</td>
+              <td class="py-3 px-3 text-center text-gray-400">❌ (Berbayar)</td>
+              <td class="py-3 px-3 text-center text-orange-700 font-bold">❌ (Tidak Ada Update)</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-3 font-semibold">Fitur Premium All-in-One</td>
+              <td class="py-3 px-3 text-center text-green-600 font-bold">✔️</td>
+              <td class="py-3 px-3 text-center text-gray-400">❌ (Add-on Berbayar)</td>
+              <td class="py-3 px-3 text-center text-orange-700 font-bold">❌ (Fitur Terbatas)</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <td class="py-3 px-3 font-semibold">Bisa Dipakai di Tablet & HP Biasa</td>
+              <td class="py-3 px-3 text-center text-green-600 font-bold">✔️</td>
+              <td class="py-3 px-3 text-center text-gray-400">❌ (Device Khusus)</td>
+              <td class="py-3 px-3 text-center text-orange-700 font-bold">❌ (Hanya Komputer)</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-3 font-semibold">Backup Otomatis ke Google Drive</td>
+              <td class="py-3 px-3 text-center text-green-600 font-bold">✔️</td>
+              <td class="py-3 px-3 text-center text-gray-400">❌</td>
+              <td class="py-3 px-3 text-center text-orange-700 font-bold">❌ (Tidak Ada Backup)</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <td class="py-3 px-3 font-semibold">Bisa Offline 100%</td>
+              <td class="py-3 px-3 text-center text-green-600 font-bold">✔️</td>
+              <td class="py-3 px-3 text-center text-gray-400">❌ (Wajib Online)</td>
+              <td class="py-3 px-3 text-center text-orange-700 font-bold">✔️</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-3 font-semibold">Cetak Struk Bluetooth 58mm</td>
+              <td class="py-3 px-3 text-center text-green-600 font-bold">✔️</td>
+              <td class="py-3 px-3 text-center text-gray-400">✔️</td>
+              <td class="py-3 px-3 text-center text-orange-700 font-bold">❌</td>
+            </tr>
+            <tr>
+              <td class="py-3 px-3 font-semibold">Import/Export Excel</td>
+              <td class="py-3 px-3 text-center text-green-600 font-bold">✔️</td>
+              <td class="py-3 px-3 text-center text-gray-400">❌</td>
+              <td class="py-3 px-3 text-center text-orange-700 font-bold">❌</td>
+            </tr>
+            <tr class="bg-gray-50">
+              <td class="py-3 px-3 font-semibold">Privasi Data 100% Milik Anda</td>
+              <td class="py-3 px-3 text-center text-green-600 font-bold">✔️</td>
+              <td class="py-3 px-3 text-center text-gray-400">❌ (Data di Server Mereka)</td>
+              <td class="py-3 px-3 text-center text-orange-700 font-bold">✔️ (Data Lokal, Privasi Aman)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="mt-8 text-center">
+        <span class="inline-block bg-green-500 text-white font-bold px-6 py-3 rounded-xl text-lg shadow-lg">ExRestoPro: Solusi Paling Hemat, Lengkap, &amp; Bebas Ribet untuk Bisnis Resto/Kafe Anda!</span>
+      </div>
+    </div>
+  </section>
+  <!-- Core Features Section -->
+  <section class="w-full bg-gray-50 py-16" id="fitur" data-aos="fade-up">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl lg:text-4xl font-bold text-center text-blue-800 mb-10">Semua Fitur Unggulan ExRestoPro</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+        <!-- Device Compatibility Feature -->
+        <button type="button" class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center focus:outline-none group hover:shadow-xl transition-smooth border-2 border-green-400" onclick="showFeatureModal('device_compatibility')">
+          <img src="assets/tabletphone.png" alt="Tablet & Phone Ready" class="mb-4 group-hover:scale-110 transition-smooth" style="width:44px;height:44px;filter:drop-shadow(0 2px 6px #4ade80aa);">
+          <h3 class="font-semibold text-base mb-2 text-green-700">Siap untuk Tablet & HP Biasa</h3>
+          <p class="text-gray-600 text-sm">Tidak perlu beli device baru! ExRestoPro bisa langsung dipakai di tablet atau HP yang sudah Anda miliki.</p>
+        </button>
+        <!-- Fitur detail, klik untuk popup -->
+        <button type="button" class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center focus:outline-none group hover:shadow-xl transition-smooth" onclick="showFeatureModal('unlimited_produk')">
+          <img src="https://img.icons8.com/color/48/000000/plus-math.png" alt="Unlimited Produk" class="mb-4 group-hover:scale-110 transition-smooth">
+          <h3 class="font-semibold text-base mb-2">Unlimited Produk</h3>
+          <p class="text-gray-600 text-sm">Tambah produk tanpa batas, cocok untuk menu yang terus berkembang.</p>
+        </button>
+        <button type="button" class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center focus:outline-none group hover:shadow-xl transition-smooth" onclick="showFeatureModal('varian_produk')">
+          <img src="https://img.icons8.com/color/48/000000/ingredients-list.png" alt="Varian Produk" class="mb-4 group-hover:scale-110 transition-smooth">
+          <h3 class="font-semibold text-base mb-2">Varian Produk</h3>
+          <p class="text-gray-600 text-sm">Setiap produk bisa punya varian (ukuran, rasa, topping).</p>
+        </button>
+        <button type="button" class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center focus:outline-none group hover:shadow-xl transition-smooth" onclick="showFeatureModal('modifier')">
+          <img src="https://img.icons8.com/color/48/000000/add-property.png" alt="Modifier" class="mb-4 group-hover:scale-110 transition-smooth">
+          <h3 class="font-semibold text-base mb-2">Modifier</h3>
+          <p class="text-gray-600 text-sm">Opsi tambahan pada produk (extra cheese, less sugar, dll).</p>
+        </button>
+        <button type="button" class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center focus:outline-none group hover:shadow-xl transition-smooth" onclick="showFeatureModal('harga_tipe')">
+          <img src="https://img.icons8.com/color/48/000000/price-tag-euro.png" alt="Harga Tipe Pembelian" class="mb-4 group-hover:scale-110 transition-smooth">
+          <h3 class="font-semibold text-base mb-2">Harga Tipe Pembelian</h3>
+          <p class="text-gray-600 text-sm">Atur harga berbeda untuk dine-in, takeaway, GoFood, Grab, dll.</p>
+        </button>
+        <button type="button" class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center focus:outline-none group hover:shadow-xl transition-smooth" onclick="showFeatureModal('meja_shift_kas')">
+          <img src="https://img.icons8.com/color/48/000000/table.png" alt="Manajemen Meja, Shift, Kas" class="mb-4 group-hover:scale-110 transition-smooth">
+          <h3 class="font-semibold text-base mb-2">Manajemen Meja, Shift, Kas</h3>
+          <p class="text-gray-600 text-sm">Pantau status meja, shift karyawan, dan kas harian.</p>
+        </button>
+        <button type="button" class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center focus:outline-none group hover:shadow-xl transition-smooth" onclick="showFeatureModal('struk_bluetooth')">
+          <img src="https://img.icons8.com/color/48/000000/bluetooth.png" alt="Cetak Struk Bluetooth" class="mb-4 group-hover:scale-110 transition-smooth">
+          <h3 class="font-semibold text-base mb-2">Cetak Struk Bluetooth</h3>
+          <p class="text-gray-600 text-sm">Print struk transaksi & laporan shift ke printer thermal Bluetooth 58mm.</p>
+        </button>
+        <button type="button" class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center focus:outline-none group hover:shadow-xl transition-smooth" onclick="showFeatureModal('laporan')">
+          <img src="https://img.icons8.com/color/48/000000/combo-chart--v1.png" alt="Laporan Lengkap" class="mb-4 group-hover:scale-110 transition-smooth">
+          <h3 class="font-semibold text-base mb-2">Laporan Lengkap</h3>
+          <p class="text-gray-600 text-sm">Laporan harian, mingguan, bulanan, filter sesuai kebutuhan.</p>
+        </button>
+        <button type="button" class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center focus:outline-none group hover:shadow-xl transition-smooth" onclick="showFeatureModal('offline_drive')">
+          <img src="https://img.icons8.com/color/48/000000/google-drive--v2.png" alt="Mode Offline & Google Drive" class="mb-4 group-hover:scale-110 transition-smooth">
+          <h3 class="font-semibold text-base mb-2">Mode Offline & Google Drive</h3>
+          <p class="text-gray-600 text-sm">Aplikasi tetap berjalan tanpa internet, data backup ke Google Drive.</p>
+        </button>
+        <button type="button" class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center focus:outline-none group hover:shadow-xl transition-smooth" onclick="showFeatureModal('user_pajak_tips')">
+          <img src="https://img.icons8.com/color/48/000000/user-group-man-man.png" alt="User, Pajak, Tips" class="mb-4 group-hover:scale-110 transition-smooth">
+          <h3 class="font-semibold text-base mb-2">User, Pajak, Tips</h3>
+          <p class="text-gray-600 text-sm">Manajemen user, hak akses, pajak, tips/gratuity.</p>
+        </button>
+        <button type="button" class="bg-white rounded-2xl shadow p-6 flex flex-col items-center text-center focus:outline-none group hover:shadow-xl transition-smooth" onclick="showFeatureModal('pembayaran_excel')">
+          <img src="https://img.icons8.com/color/48/000000/microsoft-excel-2019--v2.png" alt="Pembayaran & Excel" class="mb-4 group-hover:scale-110 transition-smooth">
+          <h3 class="font-semibold text-base mb-2">Pembayaran & Excel</h3>
+          <p class="text-gray-600 text-sm">Metode pembayaran beragam, import/export data Excel.</p>
+        </button>
+     
+       
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works (Video) Section -->
+  <section class="w-full bg-white py-16" id="video" data-aos="fade-up">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h2 class="text-3xl lg:text-4xl font-bold text-blue-800 mb-8">Lihat Betapa Mudahnya Mengelola Restoran Anda</h2>
+      <div class="aspect-w-16 aspect-h-9 w-full rounded-2xl overflow-hidden shadow-lg mb-6">
+        <iframe class="w-full h-72 md:h-96" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Demo ExRestoPro" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <a href="https://www.youtube.com/" target="_blank" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-smooth">Tonton Demo di YouTube</a>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="w-full bg-green-50 py-16" id="harga" data-aos="fade-up">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h2 class="text-3xl lg:text-4xl font-bold text-green-700 mb-6">Investasi Terbaik untuk Bisnis Anda. Tanpa Biaya Tersembunyi.</h2>
+      <div class="flex flex-col md:flex-row items-center justify-center gap-8 mb-6">
+        <div class="text-5xl font-extrabold text-green-600">Rp 199.000</div>
+        <ul class="text-left text-gray-700 text-lg space-y-2">
+          <li>✅ Lisensi Seumur Hidup</li>
+          <li>✅ <b>Gratis Update Selamanya</b></li>
+          <li>✅ Tanpa Biaya Langganan Bulanan</li>
+          <li>✅ Tanpa Biaya Tambahan per Fitur</li>
+          <li>❌ Bukan Rp 300.000/bulan seperti yang lain</li>
+        </ul>
+      </div>
+      <a href="#" class="inline-flex items-center bg-green-500 hover:bg-green-600 text-white font-semibold px-8 py-4 rounded-xl shadow-lg cta-shadow text-lg transition-smooth mt-4">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/App_Store_%28iOS%29.svg" alt="App Store" class="w-7 h-7 mr-3">Download di App Store
+      </a>
+    </div>
+  </section>
+
+  <!-- Testimonial Section -->
+  <section class="w-full bg-white py-16" id="testimoni" data-aos="fade-up">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-3xl lg:text-4xl font-bold text-blue-800 text-center mb-10">Apa Kata Mereka yang Sudah Pindah ke ExRestoPro?</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Testimoni 1 -->
+        <div class="bg-gray-50 rounded-2xl shadow p-6 flex flex-col items-center text-center">
+          <img src="assets/pro1.jpg" alt="Testimoni 1" class="w-16 h-16 rounded-full mb-4 object-cover">
+          <blockquote class="italic text-gray-700 mb-2">“Aplikasi kasir paling simpel dan powerful. Harga sekali bayar, fitur lengkap!”</blockquote>
+          <div class="font-semibold text-blue-800">Bu** Sa***</div>
+          <div class="text-sm text-gray-500">Resto S******</div>
+        </div>
+        <!-- Testimoni 2 -->
+        <div class="bg-gray-50 rounded-2xl shadow p-6 flex flex-col items-center text-center">
+          <img src="assets/pro2.jpg" alt="Testimoni 2" class="w-16 h-16 rounded-full mb-4 object-cover">
+          <blockquote class="italic text-gray-700 mb-2">“Supportnya responsif, data aman di Google Drive. Sangat recommended!”</blockquote>
+          <div class="font-semibold text-blue-800">Si** Rah****</div>
+          <div class="text-sm text-gray-500">Kopi Ma****</div>
+        </div>
+        <!-- Testimoni 3 -->
+        <div class="bg-gray-50 rounded-2xl shadow p-6 flex flex-col items-center text-center">
+          <img src="assets/pro3.jpg" alt="Testimoni 3" class="w-16 h-16 rounded-full mb-4 object-cover">
+          <blockquote class="italic text-gray-700 mb-2">“Fitur lengkap, tanpa biaya bulanan. Cocok untuk UMKM!”</blockquote>
+          <div class="font-semibold text-blue-800">An** W****</div>
+          <div class="text-sm text-gray-500">Bakso Jo***</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="w-full bg-gray-50 py-16" id="faq" data-aos="fade-up">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-3xl lg:text-4xl font-bold text-blue-800 text-center mb-8">Masih Ragu? Kami Jawab di Sini</h2>
+      <div class="space-y-4" id="faq-list">
+        <!-- FAQ 1 -->
+        <div class="faq-accordion">
+          <div class="faq-header cursor-pointer flex items-center justify-between px-6 py-4 font-semibold text-lg text-gray-800">Apakah ini benar-benar hanya bayar sekali?<span class="ml-2">+</span></div>
+          <div class="faq-content px-6 pb-4 text-gray-700 text-base overflow-hidden max-h-0 transition-all duration-300">
+            Ya, 100%. Beli sekali, aplikasi jadi milik Anda selamanya termasuk semua update fitur di masa depan.
+          </div>
+        </div>
+        <!-- FAQ 2 -->
+        <div class="faq-accordion">
+          <div class="faq-header cursor-pointer flex items-center justify-between px-6 py-4 font-semibold text-lg text-gray-800">Apakah data saya aman?<span class="ml-2">+</span></div>
+          <div class="faq-content px-6 pb-4 text-gray-700 text-base overflow-hidden max-h-0 transition-all duration-300">
+            Sangat aman. Aplikasi bekerja offline dan data hanya tersimpan di perangkat Anda atau di akun Google Drive pribadi Anda. Kami tidak bisa mengaksesnya.
+          </div>
+        </div>
+        <!-- FAQ 3 -->
+        <div class="faq-accordion">
+          <div class="faq-header cursor-pointer flex items-center justify-between px-6 py-4 font-semibold text-lg text-gray-800">Printer jenis apa yang didukung?<span class="ml-2">+</span></div>
+          <div class="faq-content px-6 pb-4 text-gray-700 text-base overflow-hidden max-h-0 transition-all duration-300">
+            Mendukung mayoritas printer thermal Bluetooth ukuran 58mm yang ada di pasaran.
+          </div>
+        </div>
+        <!-- FAQ 4: Support Tablet -->
+        <div class="faq-accordion">
+          <div class="faq-header cursor-pointer flex items-center justify-between px-6 py-4 font-semibold text-lg text-gray-800">Apakah support tablet/phone biasa?<span class="ml-2">+</span></div>
+          <div class="faq-content px-6 pb-4 text-gray-700 text-base overflow-hidden max-h-0 transition-all duration-300">
+            Tentu saja! ExRestoPro bisa digunakan di tablet maupun HP biasa, baik Android maupun iOS.
+          </div>
+        </div>
+        <!-- FAQ 5: System Update -->
+        <div class="faq-accordion">
+          <div class="faq-header cursor-pointer flex items-center justify-between px-6 py-4 font-semibold text-lg text-gray-800">Apakah sistem akan terus dikembangkan?<span class="ml-2">+</span></div>
+          <div class="faq-content px-6 pb-4 text-gray-700 text-base overflow-hidden max-h-0 transition-all duration-300">
+            Ya, secara periodik minimal 1 bulan sekali akan ada update dan penambahan fitur baru.
+          </div>
+        </div>
+        <!-- FAQ 6: Request Fitur Baru -->
+        <div class="faq-accordion">
+          <div class="faq-header cursor-pointer flex items-center justify-between px-6 py-4 font-semibold text-lg text-gray-800">Request fitur baru atau lapor bug gimana?<span class="ml-2">+</span></div>
+          <div class="faq-content px-6 pb-4 text-gray-700 text-base overflow-hidden max-h-0 transition-all duration-300">
+            Silakan email kami di <a href="mailto:exrestopro@gmail.com" class="text-blue-600 underline">exrestopro@gmail.com</a>. Jika ada bug, kami akan segera update secepat kilat!
+          </div>
+        </div>
+        <!-- FAQ 7: Multi Kasir -->
+        <div class="faq-accordion">
+          <div class="faq-header cursor-pointer flex items-center justify-between px-6 py-4 font-semibold text-lg text-gray-800">Bisa multi kasir?<span class="ml-2">+</span></div>
+          <div class="faq-content px-6 pb-4 text-gray-700 text-base overflow-hidden max-h-0 transition-all duration-300">
+            Sistem ini hanya untuk kasir simple dan mendukung 1 kasir. Jika ingin 2 kasir atau lebih, bisa saja, tapi pembukuan tidak jadi satu.
+          </div>
+        </div>
+        <!-- FAQ 8: Analisa/Pantau -->
+        <div class="faq-accordion">
+          <div class="faq-header cursor-pointer flex items-center justify-between px-6 py-4 font-semibold text-lg text-gray-800">Butuh analisa/pantau dari jauh gimana caranya?<span class="ml-2">+</span></div>
+          <div class="faq-content px-6 pb-4 text-gray-700 text-base overflow-hidden max-h-0 transition-all duration-300">
+            Sistem kami mendukung fitur schedule to cloud. Tinggal diaktifkan, lalu restore di device lain untuk memantau penjualan dan status bisnis Anda.
+          </div>
+        </div>
+        <!-- FAQ 9: Fitur Mendatang -->
+        <div class="faq-accordion">
+          <div class="faq-header cursor-pointer flex items-center justify-between px-6 py-4 font-semibold text-lg text-gray-800">Fitur-fitur apa yang akan dikembangkan ke depan?<span class="ml-2">+</span></div>
+          <div class="faq-content px-6 pb-4 text-gray-700 text-base overflow-hidden max-h-0 transition-all duration-300">
+            <ul class="list-disc pl-5 text-left">
+              <li>Report yang lebih lengkap</li>
+              <li>Dukungan untuk stock barang</li>
+              <li>Dan banyak lagi</li>
+            </ul>
+          </div>
+        </div>
+        <!-- FAQ 10: Android -->
+        <div class="faq-accordion">
+          <div class="faq-header cursor-pointer flex items-center justify-between px-6 py-4 font-semibold text-lg text-gray-800">Kapan versi Android akan tersedia?<span class="ml-2">+</span></div>
+          <div class="faq-content px-6 pb-4 text-gray-700 text-base overflow-hidden max-h-0 transition-all duration-300">
+            Saat ini kami fokus pada platform iOS untuk memberikan pengalaman terbaik. Versi Android sedang dalam pertimbangan.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+   
+
+  <!-- Final CTA Section -->
+  <!-- Feature Modal -->
+  <div id="feature-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 hidden">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-8 relative animate-fadeIn">
+      <button onclick="closeFeatureModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-2xl font-bold">&times;</button>
+      <div id="feature-modal-content">
+        <!-- Dynamic content here -->
+      </div>
+    </div>
+  </div>
+
+
+   <section id="screenshot-gallery" class="w-full bg-white py-16" data-aos="fade-up">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl lg:text-4xl font-bold text-blue-800 mb-6 text-center">Galeri Screenshot ExRestoPro</h2>
+      <p class="text-lg text-gray-700 mb-10 text-center">Lihat langsung tampilan aplikasi ExRestoPro. Klik gambar untuk memperbesar.</p>
+      <div class="mb-10">
+        <h3 class="text-xl font-bold text-green-700 mb-4">Screenshot Tablet</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4" id="gallery-tablet">
+          <!-- Tablet screenshots injected by JS -->
+        </div>
+      </div>
+      <div>
+        <h3 class="text-xl font-bold text-blue-700 mb-4">Screenshot iPhone</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4" id="gallery-phone">
+          <!-- Phone screenshots injected by JS -->
+        </div>
+      </div>
+      <template id="screenshot-template">
+        <div class="relative group cursor-pointer">
+          <img src="" alt="Screenshot ExRestoPro" class="rounded-xl shadow-md transition-transform duration-300 group-hover:scale-105 group-hover:shadow-xl object-cover w-full h-40 sm:h-48 md:h-56" loading="lazy">
+          <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl"></div>
+        </div>
+      </template>
+    </div>
+    <!-- Modal Preview -->
+    <div id="gallery-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 hidden">
+      <button id="gallery-modal-close" class="absolute top-4 right-6 text-white text-4xl font-bold hover:text-green-400 z-50">&times;</button>
+      <button id="gallery-modal-prev" class="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 text-white text-3xl px-3 py-2 rounded-full bg-black/40 hover:bg-green-500 transition z-50">&#8592;</button>
+      <img id="gallery-modal-img" src="" alt="Preview Screenshot" class="gallery-modal-img fixed top-0 left-0 w-full h-full object-contain m-0 p-0 z-40 transition-transform duration-300">
+      <button id="gallery-modal-next" class="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 text-white text-3xl px-3 py-2 rounded-full bg-black/40 hover:bg-green-500 transition z-50">&#8594;</button>
+      <div id="gallery-modal-indicator" class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-50"></div>
+    </div>
+  </section>
+
+  <!-- How To / Cara Memulai Section -->
+  <section class="w-full bg-gradient-to-b from-blue-50 to-white py-16" id="howto" data-aos="fade-up">
+    <div class="max-w-3xl mx-auto px-4">
+      <h2 class="text-3xl lg:text-4xl font-bold text-blue-800 mb-8 text-center">Cara Memulai ExRestoPro</h2>
+      <ol class="space-y-6">
+        <li class="flex items-start gap-4">
+          <span class="flex-shrink-0 w-10 h-10 rounded-full bg-green-500 text-white flex items-center justify-center text-xl font-bold shadow">1</span>
+          <div>
+            <div class="font-semibold text-lg mb-1">Klik link & beli aplikasi melalui App Store</div>
+            <div class="text-gray-700">Cari <b>ExRestoPro</b> di App Store, atau klik tombol download di halaman ini.</div>
+          </div>
+        </li>
+        <li class="flex items-start gap-4">
+          <span class="flex-shrink-0 w-10 h-10 rounded-full bg-green-500 text-white flex items-center justify-center text-xl font-bold shadow">2</span>
+          <div>
+            <div class="font-semibold text-lg mb-1">Install aplikasi</div>
+            <div class="text-gray-700">Setelah pembelian, install aplikasi. Otomatis terisi demo produk & data contoh.</div>
+          </div>
+        </li>
+        <li class="flex items-start gap-4">
+          <span class="flex-shrink-0 w-10 h-10 rounded-full bg-green-500 text-white flex items-center justify-center text-xl font-bold shadow">3</span>
+          <div>
+            <div class="font-semibold text-lg mb-1">Login dengan PIN <b>1234</b></div>
+            <div class="text-gray-700">PIN default: <b>1234</b>. Anda bisa ganti PIN di menu pengaturan.</div>
+          </div>
+        </li>
+        <li class="flex items-start gap-4">
+          <span class="flex-shrink-0 w-10 h-10 rounded-full bg-green-500 text-white flex items-center justify-center text-xl font-bold shadow">4</span>
+          <div>
+            <div class="font-semibold text-lg mb-1">Edit data usaha</div>
+            <div class="text-gray-700">Masuk ke <b>Settings → Store</b>, isi keterangan usaha Anda (nama, alamat, dsb).</div>
+          </div>
+        </li>
+        <li class="flex items-start gap-4">
+          <span class="flex-shrink-0 w-10 h-10 rounded-full bg-green-500 text-white flex items-center justify-center text-xl font-bold shadow">5</span>
+          <div>
+            <div class="font-semibold text-lg mb-1">Mulai shift & transaksi</div>
+            <div class="text-gray-700">Buka menu <b>Shift</b> lalu <b>Add Shift</b> untuk mulai. Untuk transaksi, pilih <b>Order → Add Order</b>.</div>
+          </div>
+        </li>
+      </ol>
+      <div class="mt-10 text-center">
+        <span class="inline-block bg-green-100 text-green-800 font-semibold px-6 py-3 rounded-xl text-lg shadow">Silakan mencoba! 🎉</span>
+      </div>
+    </div>
+  </section>
+
+    <section class="w-full bg-gradient-to-b from-green-100 to-white py-16" id="final-cta" data-aos="fade-up">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <h2 class="text-3xl lg:text-4xl font-bold text-blue-800 mb-4">Siap Hemat Biaya dan Kembangkan Bisnis Anda?</h2>
+      <p class="text-lg text-gray-700 mb-8">Download ExRestoPro sekarang dan rasakan bedanya.</p>
+      <a href="#" class="inline-flex items-center bg-green-500 hover:bg-green-600 text-white font-semibold px-8 py-4 rounded-xl shadow-lg cta-shadow text-lg transition-smooth">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/App_Store_%28iOS%29.svg" alt="App Store" class="w-7 h-7 mr-3">Download di App Store
+      </a>
+    </div>
+  </section>
+  <!-- Navbar JS -->
+  <script>
+    // Navbar/menu sticky interaktif (desktop & mobile)
+    // Mobile menu logic
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuClose = document.getElementById('menu-close');
+    function closeMobileMenu() {
+      mobileMenu.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+    menuToggle && menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+    });
+    menuClose && menuClose.addEventListener('click', closeMobileMenu);
+    // Close menu on click outside
+    mobileMenu && mobileMenu.addEventListener('click', (e) => {
+      if (e.target === mobileMenu) closeMobileMenu();
+    });
+    // Smooth scroll for ALL nav links (desktop & mobile)
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href && href.length > 1 && document.querySelector(href)) {
+          e.preventDefault();
+          closeMobileMenu && closeMobileMenu();
+          setTimeout(() => {
+            const target = document.querySelector(href);
+            if (target) {
+              const y = target.getBoundingClientRect().top + window.pageYOffset - 80;
+              window.scrollTo({ top: y, behavior: 'smooth' });
+            }
+          }, 10);
+        }
+      });
+    });
+  </script>
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+</script>
+<script>
+// FAQ Accordion interactivity: only show answer when clicked
+document.querySelectorAll('.faq-header').forEach(header => {
+  header.addEventListener('click', function() {
+    const content = this.nextElementSibling;
+    const isOpen = content.classList.contains('max-h-96');
+    document.querySelectorAll('.faq-content').forEach(c => {
+      c.classList.remove('max-h-96');
+      c.style.maxHeight = null;
+    });
+    if (!isOpen) {
+      content.classList.add('max-h-96');
+      content.style.maxHeight = content.scrollHeight + 'px';
+    }
+  });
+});
+</script>
+</body>
+</html>
