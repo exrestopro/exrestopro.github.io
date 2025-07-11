@@ -467,8 +467,8 @@
         <!-- FAQ 10: Android -->
         <div class="faq-accordion">
           <div class="faq-header cursor-pointer flex items-center justify-between px-6 py-4 font-semibold text-lg text-gray-800">Kapan versi Android akan tersedia?<span class="ml-2">+</span></div>
-          <div class="faq-content px-6 pb-4 text-gray-700 text-base overflow-hidden max-h-0 transition-all duration-300">
-            Saat ini kami fokus pada platform iOS untuk memberikan pengalaman terbaik. Versi Android sedang dalam pertimbangan.
+          <div class="faq-content px-6 pb-4 text-gray-700 text-base overflow-hidden max-h-0 transition-all duration-300" style="display:none;">
+            Kami sangat memahami pentingnya dukungan untuk Android. Tim kami sedang mengembangkan versi Android dan akan segera merilisnya agar bisa digunakan di lebih banyak perangkat. Jika Anda membutuhkan ExRestoPro untuk Android dalam waktu dekat, silakan hubungi kami—kami siap membantu solusi terbaik untuk bisnis Anda.
           </div>
         </div>
       </div>
@@ -592,7 +592,15 @@
       </a>
     </div>
   </section>
-  <!-- Navbar JS -->
+  <!-- Footer: Privacy, Terms, Copyright -->
+  <footer class="w-full bg-gray-100 text-center py-6 text-sm text-gray-500 mt-12">
+    <div class="flex flex-col md:flex-row items-center justify-center gap-4 mb-2">
+      <a href="privacy.html" class="text-green-700 hover:underline font-semibold">Kebijakan Privasi</a>
+      <span class="hidden md:inline">|</span>
+      <a href="terms.html" class="text-green-700 hover:underline font-semibold">Syarat & Ketentuan</a>
+    </div>
+    <div>&copy; 2025 ExRestoPro. Seluruh hak cipta dilindungi.</div>
+  </footer>
   <script>
     // Navbar/menu sticky interaktif (desktop & mobile)
     // Mobile menu logic
@@ -643,15 +651,26 @@
 document.querySelectorAll('.faq-header').forEach(header => {
   header.addEventListener('click', function() {
     const content = this.nextElementSibling;
-    const isOpen = content.classList.contains('max-h-96');
+    const isOpen = content.classList.contains('faq-open');
+    // Tutup semua
     document.querySelectorAll('.faq-content').forEach(c => {
-      c.classList.remove('max-h-96');
+      c.classList.remove('faq-open');
       c.style.maxHeight = null;
+      c.style.display = 'none';
     });
     if (!isOpen) {
-      content.classList.add('max-h-96');
+      content.classList.add('faq-open');
+      content.style.display = 'block';
       content.style.maxHeight = content.scrollHeight + 'px';
     }
+  });
+});
+// Pastikan semua jawaban FAQ hidden saat load
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.faq-content').forEach(c => {
+    c.classList.remove('faq-open');
+    c.style.maxHeight = null;
+    c.style.display = 'none';
   });
 });
 </script>
