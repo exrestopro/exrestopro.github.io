@@ -7,73 +7,154 @@ document.addEventListener('DOMContentLoaded', function () {
     "IMG_1768.PNG","IMG_1769.PNG","IMG_1770.PNG","IMG_1771.PNG","IMG_1772.PNG","IMG_1773.PNG","IMG_1774.PNG","IMG_1775.PNG","IMG_1776.PNG","IMG_1777.PNG","IMG_1778.PNG","IMG_1779.PNG","IMG_1780.PNG","IMG_1781.PNG","IMG_1782.PNG","IMG_1783.PNG","IMG_1784.PNG","IMG_1785.PNG","IMG_1786.PNG","IMG_1787.PNG","IMG_1788.PNG","IMG_1789.PNG","IMG_1790.PNG","IMG_1791.PNG","IMG_1792.PNG",
     "IMG_6716.PNG","IMG_6717.PNG","IMG_6718.PNG","IMG_6719.PNG","IMG_6720.PNG","IMG_6721.PNG","IMG_6722.PNG","IMG_6723.PNG","IMG_6724.PNG","IMG_6725.PNG","IMG_6726.PNG","IMG_6727.PNG","IMG_6728.PNG","IMG_6729.PNG","IMG_6730.PNG","IMG_6731.PNG","IMG_6732.PNG","IMG_6733.PNG","IMG_6734.PNG","IMG_6735.PNG","IMG_6736.PNG","IMG_6737.PNG","IMG_6738.PNG","IMG_6739.PNG","IMG_6740.PNG","IMG_6741.PNG","IMG_6742.PNG","IMG_6743.PNG","IMG_6744.PNG","IMG_6745.PNG","IMG_6746.PNG","IMG_6747.PNG","IMG_6748.PNG","IMG_6749.PNG"
   ];
+  
   // Tablet: IMG_17XX, Phone: IMG_67XX
   const tabletFiles = allFiles.filter(f => /^IMG_17\d{2}\.PNG$/i.test(f));
   const phoneFiles = allFiles.filter(f => /^IMG_67\d{2}\.PNG$/i.test(f));
   // Gabungkan urutan: tablet lalu phone
   const screenshotFiles = [...tabletFiles, ...phoneFiles];
-  // Untuk modal/slider: mapping file ke index global
+  
+  // Get DOM elements
   const galleryTablet = document.getElementById('gallery-tablet');
   const galleryPhone = document.getElementById('gallery-phone');
   const template = document.getElementById('screenshot-template');
-  let currentIdx = 0;
-  // Render thumbnails Tablet
-  tabletFiles.forEach((file, idx) => {
-    const clone = template.content.cloneNode(true);
-    const img = clone.querySelector('img');
-    img.src = `assets/screenshoot/${file}`;
-    img.alt = `Screenshot Tablet ${idx+1}`;
-    img.dataset.idx = idx;
-    img.addEventListener('click', () => openGalleryModal(idx));
-    galleryTablet.appendChild(clone);
-  });
-  // Render thumbnails Phone
-  phoneFiles.forEach((file, idx) => {
-    const clone = template.content.cloneNode(true);
-    const img = clone.querySelector('img');
-    img.src = `assets/screenshoot/${file}`;
-    img.alt = `Screenshot iPhone ${idx+1}`;
-    // Index di screenshotFiles: tablet.length + idx
-    const globalIdx = tabletFiles.length + idx;
-    img.dataset.idx = globalIdx;
-    img.addEventListener('click', () => openGalleryModal(globalIdx));
-    galleryPhone.appendChild(clone);
-  });
-  // Modal logic
   const modal = document.getElementById('gallery-modal');
   const modalImg = document.getElementById('gallery-modal-img');
   const btnClose = document.getElementById('gallery-modal-close');
   const btnPrev = document.getElementById('gallery-modal-prev');
   const btnNext = document.getElementById('gallery-modal-next');
-  // --- Modal/Slider logic ---
   const indicator = document.getElementById('gallery-modal-indicator');
-  let lastIdx = -1;
+  
+  let currentIdx = 0;
+  
+  // Check if all required elements exist
+  if (!galleryTablet || !galleryPhone || !template || !modal || !modalImg) {
+    console.error('Required gallery elements not found');
+    return;
+  }
+  
+  // Render thumbnails Tablet (pakai thumbs JPG)
+  tabletFiles.forEach((file, idx) => {
+    const clone = template.content.cloneNode(true);
+    const img = clone.querySelector('img');
+    const thumb = `assets/screenshoot/thumbs/${file.replace(/\.PNG$/i, '.jpg')}`;
+    img.src = thumb;
+    img.alt = `Screenshot Tablet ${idx+1}`;
+    img.dataset.idx = idx;
+    img.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.open(`gallery.html?img=${encodeURIComponent(file)}`, '_blank');
+    });
+    galleryTablet.appendChild(clone);
+  });
+
+  // Render thumbnails Phone (pakai thumbs JPG)
+  phoneFiles.forEach((file, idx) => {
+    const clone = template.content.cloneNode(true);
+    const img = clone.querySelector('img');
+    const thumb = `assets/screenshoot/thumbs/${file.replace(/\.PNG$/i, '.jpg')}`;
+    img.src = thumb;
+    img.alt = `Screenshot iPhone ${idx+1}`;
+    const globalIdx = tabletFiles.length + idx;
+    img.dataset.idx = globalIdx;
+    img.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.open(`gallery.html?img=${encodeURIComponent(file)}`, '_blank');
+    });
+    galleryPhone.appendChild(clone);
+  });
+  
+  // Modal functions
   function openGalleryModal(idx) {
     currentIdx = idx;
-    modalImg.classList.remove('fadein-img');
-    // Animate image fade
-    setTimeout(() => modalImg.classList.add('fadein-img'), 10);
-    modalImg.src = `assets/screenshoot/${screenshotFiles[idx]}`;
+    // Tampilkan spinner loading
+    modalImg.style.opacity = 0;
+    modalImg.src = '';
     modal.classList.remove('hidden');
+    modal.style.display = 'flex'; // Ensure modal is visible
     updateSliderUI();
     document.body.classList.add('gallery-modal-open');
+    // Load gambar besar
+    const fullImg = `assets/screenshoot/${screenshotFiles[idx]}`;
+    // Spinner element
+    let spinner = document.getElementById('gallery-modal-spinner');
+    if (!spinner) {
+      spinner = document.createElement('div');
+      spinner.id = 'gallery-modal-spinner';
+      spinner.innerHTML = '<div class="loader"></div>';
+      spinner.style.position = 'fixed';
+      spinner.style.top = '50%';
+      spinner.style.left = '50%';
+      spinner.style.transform = 'translate(-50%, -50%)';
+      spinner.style.zIndex = '100000';
+      modal.appendChild(spinner);
+    } else {
+      spinner.style.display = 'block';
+    }
+    // Load image
+    modalImg.onload = function() {
+      spinner.style.display = 'none';
+      modalImg.style.opacity = 1;
+      modalImg.classList.add('fadein-img');
+    };
+    modalImg.onerror = function() {
+      spinner.style.display = 'none';
+      modalImg.style.opacity = 1;
+      modalImg.classList.remove('fadein-img');
+      modalImg.alt = 'Gagal memuat gambar';
+    };
+    modalImg.classList.remove('fadein-img');
+    modalImg.src = fullImg;
   }
+// Tambah CSS spinner loader
+if (!document.getElementById('gallery-modal-spinner-style')) {
+  const style = document.createElement('style');
+  style.id = 'gallery-modal-spinner-style';
+  style.innerHTML = `
+    .loader {
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #22c55e;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  `;
+  document.head.appendChild(style);
+}
+  
   function closeGalleryModal() {
     modal.classList.add('hidden');
+    modal.style.display = 'none';
     modalImg.src = '';
+    modalImg.classList.remove('fadein-img');
     document.body.classList.remove('gallery-modal-open');
   }
+  
   function showPrev() {
-    if (currentIdx > 0) openGalleryModal(currentIdx-1);
+    if (currentIdx > 0) {
+      modalImg.classList.remove('fadein-img');
+      setTimeout(() => openGalleryModal(currentIdx - 1), 100);
+    }
   }
+  
   function showNext() {
-    if (currentIdx < screenshotFiles.length-1) openGalleryModal(currentIdx+1);
+    if (currentIdx < screenshotFiles.length - 1) {
+      modalImg.classList.remove('fadein-img');
+      setTimeout(() => openGalleryModal(currentIdx + 1), 100);
+    }
   }
+  
   function updateSliderUI() {
-    // Always show prev/next unless di ujung
-    btnPrev.classList.toggle('opacity-40', currentIdx === 0);
-    btnNext.classList.toggle('opacity-40', currentIdx === screenshotFiles.length-1);
-    // Indicator dots
+    // Update prev/next button opacity
+    if (btnPrev) btnPrev.classList.toggle('opacity-40', currentIdx === 0);
+    if (btnNext) btnNext.classList.toggle('opacity-40', currentIdx === screenshotFiles.length - 1);
+    
+    // Update indicator dots
     if (indicator) {
       indicator.innerHTML = '';
       screenshotFiles.forEach((_, i) => {
@@ -84,13 +165,17 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }
   }
+  
+  // Event listeners
   btnClose && btnClose.addEventListener('click', closeGalleryModal);
   btnPrev && btnPrev.addEventListener('click', showPrev);
   btnNext && btnNext.addEventListener('click', showNext);
+  
   // Close modal on overlay click
   modal && modal.addEventListener('click', function(e) {
     if (e.target === modal) closeGalleryModal();
   });
+  
   // Keyboard navigation
   document.addEventListener('keydown', function(e) {
     if (!modal.classList.contains('hidden')) {
@@ -99,20 +184,32 @@ document.addEventListener('DOMContentLoaded', function () {
       if (e.key === 'ArrowRight') showNext();
     }
   });
+  
   // Touch swipe support (mobile)
   let touchStartX = 0;
   let touchEndX = 0;
+  
   modal && modal.addEventListener('touchstart', function(e) {
     if (e.touches.length === 1) touchStartX = e.touches[0].clientX;
   });
+  
   modal && modal.addEventListener('touchend', function(e) {
     touchEndX = e.changedTouches[0].clientX;
     if (touchEndX - touchStartX > 60) showPrev();
     if (touchStartX - touchEndX > 60) showNext();
   });
-  // Animasi fadein untuk gambar modal
+  
+  // Add CSS for fade animation
   const style = document.createElement('style');
-  style.innerHTML = `.fadein-img { animation: fadeinimg 0.3s; } @keyframes fadeinimg { from { opacity:0; transform:scale(0.98);} to { opacity:1; transform:scale(1);} }`;
+  style.innerHTML = `
+    .fadein-img { 
+      animation: fadeinimg 0.3s ease-out; 
+    } 
+    @keyframes fadeinimg { 
+      from { opacity: 0; transform: scale(0.95); } 
+      to { opacity: 1; transform: scale(1); } 
+    }
+  `;
   document.head.appendChild(style);
 });
 // Custom JavaScript for ExRestoPro landing page

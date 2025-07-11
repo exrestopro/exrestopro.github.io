@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeri Screenshot ExRestoPro - Fullscreen</title>
+  <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { background: #111; color: #fff; }
+    .gallery-img { max-width: 100vw; max-height: 90vh; margin: auto; display: block; border-radius: 1.5rem; box-shadow: 0 8px 32px 0 rgba(34,197,94,0.18), 0 2px 8px 0 rgba(0,0,0,0.20); background: #222; }
+    .loader { border: 6px solid #eee; border-top: 6px solid #22c55e; border-radius: 50%; width: 48px; height: 48px; animation: spin 1s linear infinite; margin: 40px auto; }
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+    .nav-btn { background: rgba(0,0,0,0.5); border: none; color: #fff; font-size: 2.5rem; border-radius: 50%; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+    .nav-btn:hover { background: #22c55e; color: #fff; }
+    .close-btn { position: absolute; top: 24px; right: 32px; font-size: 2.5rem; color: #fff; background: rgba(0,0,0,0.5); border: none; border-radius: 50%; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; z-index: 50; }
+    .close-btn:hover { background: #ef4444; }
+    .back-btn { position: absolute; top: 24px; left: 32px; font-size: 1.2rem; color: #fff; background: rgba(34,197,94,0.8); border: none; border-radius: 1rem; padding: 0.5rem 1.2rem; z-index: 50; font-weight: bold; }
+    .back-btn:hover { background: #22c55e; color: #fff; }
+    @media (max-width: 640px) {
+      .gallery-img { max-height: 60vh; }
+      .close-btn, .nav-btn { width: 44px; height: 44px; font-size: 2rem; }
+      .back-btn { left: 12px; top: 12px; padding: 0.3rem 0.8rem; font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <button class="back-btn" onclick="window.location='index.html#screenshot-gallery'">&larr; Kembali</button>
+  <button class="close-btn" onclick="window.close()">&times;</button>
+  <div class="flex flex-col items-center justify-center min-h-screen w-full relative">
+    <div id="gallery-loader" class="loader"></div>
+    <img id="gallery-img" class="gallery-img hidden" src="" alt="Screenshot ExRestoPro">
+    <div class="flex justify-between w-full absolute top-1/2 left-0 px-4" style="transform: translateY(-50%);">
+      <button id="prev-btn" class="nav-btn" title="Sebelumnya">&#8592;</button>
+      <button id="next-btn" class="nav-btn" title="Selanjutnya">&#8594;</button>
+    </div>
+    <div id="gallery-indicator" class="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2"></div>
+  </div>
+  <script src="gallery.js"></script>
+</body>
+</html>

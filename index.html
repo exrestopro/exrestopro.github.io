@@ -41,23 +41,46 @@
       </ul>
     </nav>
     <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 z-50 bg-black/60 hidden lg:hidden">
-      <div class="absolute top-0 right-0 w-full h-full bg-white shadow-lg flex flex-col p-6 gap-4 animate-slideIn" style="background:rgba(255,255,255,1);backdrop-filter:none;">
-        <button id="menu-close" class="self-end text-3xl text-gray-500 hover:text-green-600 mb-4">&times;</button>
-        <a href="#problem" class="py-2 px-2 rounded hover:bg-green-50 transition" onclick="closeMobileMenu()">Masalah</a>
-        <a href="#perbandingan" class="py-2 px-2 rounded hover:bg-green-50 transition" onclick="closeMobileMenu()">Perbandingan</a>
-        <a href="#fitur" class="py-2 px-2 rounded hover:bg-green-50 transition" onclick="closeMobileMenu()">Fitur</a>
-        <a href="#harga" class="py-2 px-2 rounded hover:bg-green-50 transition" onclick="closeMobileMenu()">Harga</a>
-        <a href="#testimoni" class="py-2 px-2 rounded hover:bg-green-50 transition" onclick="closeMobileMenu()">Testimoni</a>
-        <a href="#screenshot-gallery" class="py-2 px-2 rounded hover:bg-green-50 transition" onclick="closeMobileMenu()">Galeri</a>
-        <a href="#howto" class="py-2 px-2 rounded hover:bg-green-50 transition" onclick="closeMobileMenu()">Cara Memulai</a>
-        <a href="#faq" class="py-2 px-2 rounded hover:bg-green-50 transition" onclick="closeMobileMenu()">FAQ</a>
-        <a href="#final-cta" class="mt-2 inline-flex items-center bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg shadow transition" onclick="closeMobileMenu()"><img src="https://upload.wikimedia.org/wikipedia/commons/6/67/App_Store_%28iOS%29.svg" alt="App Store" class="w-5 h-5 mr-2">Download</a>
+    <div id="mobile-menu" class="fixed inset-0 z-50 hidden lg:hidden">
+      <div class="fixed inset-0 w-full h-full flex flex-col items-center justify-center bg-white animate-fadeIn p-0 m-0" style="top:0;left:0;width:100vw;height:100vh;min-height:100vh;max-height:100vh;z-index:9999;">
+        <button id="menu-close" class="absolute top-6 right-6 text-4xl text-gray-400 hover:text-green-600 font-bold focus:outline-none z-50">&times;</button>
+        <nav class="flex flex-col items-center gap-8 w-full max-w-xs z-50">
+          <a href="#problem" class="text-2xl font-semibold text-gray-800 hover:text-green-600 transition" onclick="closeMobileMenu()">Masalah</a>
+          <a href="#perbandingan" class="text-2xl font-semibold text-gray-800 hover:text-green-600 transition" onclick="closeMobileMenu()">Perbandingan</a>
+          <a href="#fitur" class="text-2xl font-semibold text-gray-800 hover:text-green-600 transition" onclick="closeMobileMenu()">Fitur</a>
+          <a href="#harga" class="text-2xl font-semibold text-gray-800 hover:text-green-600 transition" onclick="closeMobileMenu()">Harga</a>
+          <a href="#testimoni" class="text-2xl font-semibold text-gray-800 hover:text-green-600 transition" onclick="closeMobileMenu()">Testimoni</a>
+          <a href="#screenshot-gallery" class="text-2xl font-semibold text-gray-800 hover:text-green-600 transition" onclick="closeMobileMenu()">Galeri</a>
+          <a href="#howto" class="text-2xl font-semibold text-gray-800 hover:text-green-600 transition" onclick="closeMobileMenu()">Cara Memulai</a>
+          <a href="#faq" class="text-2xl font-semibold text-gray-800 hover:text-green-600 transition" onclick="closeMobileMenu()">FAQ</a>
+        </nav>
+        <a href="#hero" class="mt-12 inline-flex items-center bg-green-500 hover:bg-green-600 text-white text-xl font-bold px-8 py-4 rounded-xl shadow-lg transition z-50" onclick="closeMobileMenu()"><img src="https://upload.wikimedia.org/wikipedia/commons/6/67/App_Store_%28iOS%29.svg" alt="App Store" class="w-7 h-7 mr-3">Download di App Store</a>
       </div>
     </div>
     <style>
       @keyframes slideIn { from { right: -300px; opacity:0; } to { right: 0; opacity:1; } }
       .animate-slideIn { animation: slideIn 0.3s cubic-bezier(.4,0,.2,1); }
+      #mobile-menu {
+        /* Remove background from parent, handled by child */
+      }
+      #mobile-menu > div {
+        position: fixed;
+        inset: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #fff;
+        z-index: 51;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        animation: fadeInMenu 0.3s;
+      }
+      @media (max-width: 1023px) {
+        #mobile-menu > div {
+          border-radius: 0 !important;
+        }
+      }
     </style>
   </header>
   <div class="h-20 lg:h-24"></div>
@@ -298,9 +321,9 @@
     <div class="max-w-3xl mx-auto px-4 text-center">
       <h2 class="text-3xl lg:text-4xl font-bold text-blue-800 mb-8">Lihat Betapa Mudahnya Mengelola Restoran Anda</h2>
       <div class="aspect-w-16 aspect-h-9 w-full rounded-2xl overflow-hidden shadow-lg mb-6">
-        <iframe class="w-full h-72 md:h-96" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Demo ExRestoPro" frameborder="0" allowfullscreen></iframe>
+        <iframe class="w-full h-72 md:h-96" src="https://www.youtube.com/embed/Dm2N-bVgwQs" title="Demo ExRestoPro" frameborder="0" allowfullscreen></iframe>
       </div>
-      <a href="https://www.youtube.com/" target="_blank" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-smooth">Tonton Demo di YouTube</a>
+      <a href="https://youtu.be/Dm2N-bVgwQs" target="_blank" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-smooth">Tonton Demo di YouTube</a>
     </div>
   </section>
 
@@ -452,7 +475,13 @@
 
    <section id="screenshot-gallery" class="w-full bg-white py-16" data-aos="fade-up">
     <div class="max-w-6xl mx-auto px-4">
-      <h2 class="text-3xl lg:text-4xl font-bold text-blue-800 mb-6 text-center">Galeri Screenshot ExRestoPro</h2>
+      <div class="flex flex-col sm:flex-row items-center justify-between mb-6 gap-4">
+        <h2 class="text-3xl lg:text-4xl font-bold text-blue-800 text-center sm:text-left">Galeri Screenshot ExRestoPro</h2>
+        <button onclick="window.open('gallery.html','_blank')" class="flex items-center gap-2 bg-green-100 hover:bg-green-200 text-green-700 font-bold px-4 py-2 rounded-xl shadow transition text-base" title="Buka Galeri Fullscreen">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9V5.25A2.25 2.25 0 016 3h3.75m4.5 0H18a2.25 2.25 0 012.25 2.25V9m0 6v3.75A2.25 2.25 0 0118 21h-3.75m-4.5 0H6a2.25 2.25 0 01-2.25-2.25V15" /></svg>
+          <span class="hidden sm:inline">Buka Galeri Fullscreen</span>
+        </button>
+      </div>
       <p class="text-lg text-gray-700 mb-10 text-center">Lihat langsung tampilan aplikasi ExRestoPro. Klik gambar untuk memperbesar.</p>
       <div class="mb-10">
         <h3 class="text-xl font-bold text-green-700 mb-4">Screenshot Tablet</h3>
@@ -481,6 +510,15 @@
       <button id="gallery-modal-next" class="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 text-white text-3xl px-3 py-2 rounded-full bg-black/40 hover:bg-green-500 transition z-50">&#8594;</button>
       <div id="gallery-modal-indicator" class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-50"></div>
     </div>
+    <script>
+      // Ensure modal is appended to body for fullscreen overlay
+      document.addEventListener('DOMContentLoaded', function() {
+        var modal = document.getElementById('gallery-modal');
+        if (modal && modal.parentNode && modal.parentNode.tagName !== 'BODY') {
+          document.body.appendChild(modal);
+        }
+      });
+    </script>
   </section>
 
   <!-- How To / Cara Memulai Section -->
