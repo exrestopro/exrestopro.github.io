@@ -360,4 +360,48 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
+// Tambahkan di script.js
+document.addEventListener('DOMContentLoaded', function() {
+  // Android Beta Modal
+  window.showAndroidBetaModal = function() {
+    document.getElementById('android-beta-modal').classList.remove('hidden');
+  };
+  
+  window.closeAndroidBetaModal = function() {
+    document.getElementById('android-beta-modal').classList.add('hidden');
+  };
+  
+  // Handle beta form submission
+  const betaForm = document.getElementById('android-beta-form');
+  if (betaForm) {
+    betaForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('android-beta-email').value;
+      
+      // Kirim email ke server atau service
+      handleBetaSignup(email);
+    });
+  }
+  
+  // Handle beta signup
+  function handleBetaSignup(email) {
+    // Opsi 1: Kirim ke Google Forms
+    // window.open(`https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse?usp=pp_url&entry.EMAIL_FIELD=${encodeURIComponent(email)}`, '_blank');
+    
+    // Opsi 2: Kirim ke server Anda
+    // fetch('/api/beta-signup', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify({ email })
+    // });
+    
+    // Opsi 3: Mailto (sementara)
+    window.location.href = `mailto:exrestopro@gmail.com?subject=Beta Test Android - ${email}&body=Halo, saya ingin mendaftar beta test ExRestoPro Android.%0D%0A%0D%0AEmail: ${email}`;
+    
+    // Show success message
+    alert('Terima kasih! Kami akan mengirim link download ke email Anda dalam 1-2 hari kerja.');
+    closeAndroidBetaModal();
+  }
+});
+
 console.log('ExRestoPro landing page script loaded.');
